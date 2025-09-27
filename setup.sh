@@ -17,28 +17,12 @@ mybanner ()
   echo "+------------------------------------------+"
 }
 
-install_backend () {
-  mybanner "Installing backend"
-  cd ${scriptDir}/backend
+install_db () {
+  mybanner "Installing DB"
+  cd ${scriptDir}/db
   nvm use
-  yarn
-  yarn build
+  yarn install
 }
-
-install_ui () {
-  mybanner "Installing ui"
-  cd ${scriptDir}/ui
-  nvm use
-  yarn install && yarn build
-}
-
-# install_db () {
-#   mybanner "Installing DB"
-#   cd ${scriptDir}/db
-#   nvm use
-#   yarn install
-# }
-
 
 start=`date +%s`
 install_backend
